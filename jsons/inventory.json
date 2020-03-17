@@ -1,0 +1,30 @@
+{
+    
+    {
+
+        "item" : "cake",
+        "amnt" : "3000",
+        "cost" : "7.33",
+        "unit" : "per_pound"
+
+	},
+
+    {
+
+        "item" : "apple",
+        "amnt" : "40",
+        "cost" : "3.99",
+        "unit" : "per_item"
+
+	},
+    
+    {
+
+        "item" : "mango",
+        "amnt" : "3",
+        "cost" : "5.50",
+        "unit" : "per_item"
+
+	}
+
+}
