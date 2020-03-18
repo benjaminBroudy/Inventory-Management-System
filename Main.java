@@ -14,6 +14,8 @@ public class Main {
 
     static UpdateAccounts updateAccounts;
 
+    static UpdateInventory updateInventory;
+
     public static void main(String[] args) throws IOException {
 
         input = new Input();
@@ -21,6 +23,8 @@ public class Main {
         login = new Login();
 
         updateAccounts = new UpdateAccounts();
+
+        updateInventory = new UpdateInventory();
 
         setLoggedOut();
 /*
@@ -87,39 +91,112 @@ public class Main {
 
                 if (commandType.equals("help")) {}
 
-                if (commandType.equals("addUser")) {
+                userCommands(commandType, commandWordArray);
 
-                    try {
-
-                        updateAccounts.addUser(commandWordArray[1], commandWordArray[2], commandWordArray[3]);
-
-                    } catch (Exception e) {
-
-                        System.err.println("Oops! You entered invalid input when adding a user!");
-
-                    }
-
-                }
-
-                if (commandType.equals("remUser")) {
-
-                    try {
-
-                        updateAccounts.removeUser(commandWordArray[1]);
-
-                    } catch (Exception e) {
-
-                        System.err.println("Oops! You entered invalid input when removing a user!");
-
-                    }
-
-                }
+                inventoryCommands(commandType, commandWordArray);
 
                 } catch (Exception e) {
 
                     System.err.println("Oops! You entered an invalid command!");
 
             }
+        }
+
+    }
+
+    public static void userCommands(String commandType, String[] commandWordArray) {
+
+        if (commandType.equals("addUser")) {
+
+            try {
+
+                updateAccounts.addUser(commandWordArray[1], commandWordArray[2], commandWordArray[3]);
+
+            } catch (Exception e) {
+
+                System.err.println("Oops! You entered an invalid input when adding a user!");
+
+           }
+
+        }
+
+        if (commandType.equals("remUser")) {
+
+            try {
+
+                updateAccounts.removeUser(commandWordArray[1]);
+
+            } catch (Exception e) {
+
+                System.err.println("Oops! You entered an invalid input when removing a user!");
+
+            }
+
+        }
+
+    }
+
+    public static void inventoryCommands(String commandType, String[] commandWordArray) {
+
+        if (commandType.equals("addItem")) {
+
+            try {
+
+                updateInventory.addItem(commandWordArray[1], commandWordArray[2], commandWordArray[3], commandWordArray[4]);
+
+            } catch (Exception e) {
+
+                System.err.println("Oops! You entered an invalid input when adding an item!");
+
+            }
+
+        }
+
+        if (commandType.equals("remItem")) {
+
+            try {
+
+                updateInventory.removeItem(commandWordArray[1]);
+
+            } catch (Exception e) {
+
+                System.err.println("Oops! You entered an invalid input when removing an item!");
+
+            }
+
+        }
+
+        if (commandType.equals("purchase")) {
+
+            int amount = 0;
+            String cost = "";
+            String unit = "";
+
+            try {
+
+                String[][] items = updateInventory.getItems();
+
+                for (int i = 0; i < items.length; i++) {
+
+                    if (items[i][0].equals(commandWordArray[1])) {
+
+                        amount = Integer.parseInt(items[i][1]) - Integer.parseInt(commandWordArray[2]);
+                        cost = items[i][2];
+                        unit = items[i][3];
+
+                    }
+
+                }
+
+                updateInventory.removeItem(commandWordArray[1]);
+                updateInventory.addItem(commandWordArray[1], Integer.toString(amount), cost, unit);
+
+            } catch (Exception e) {
+
+                System.err.println("OOps! You entered an invalid input when purchasing an item!");
+
+            }
+
         }
 
     }

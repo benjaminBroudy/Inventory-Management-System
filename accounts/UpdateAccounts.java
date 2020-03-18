@@ -92,7 +92,6 @@ public class UpdateAccounts {
             if (user.equals(accountsArray[i][0])) {
 
                 pass = accountsArray[i][1];
-
                 level = accountsArray[i][2];
 
             }
