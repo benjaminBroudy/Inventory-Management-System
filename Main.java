@@ -16,6 +16,8 @@ public class Main {
 
     static UpdateInventory updateInventory;
 
+    static double totalCost;
+
     public static void main(String[] args) throws IOException {
 
         input = new Input();
@@ -191,11 +193,21 @@ public class Main {
                 updateInventory.removeItem(commandWordArray[1]);
                 updateInventory.addItem(commandWordArray[1], Integer.toString(amount), cost, unit);
 
+                totalCost += Double.parseDouble(commandWordArray[2]) * Double.parseDouble(cost);
+
+                System.out.println("Total cost is: " + totalCost);
+
             } catch (Exception e) {
 
                 System.err.println("Oops! You entered an invalid input when purchasing an item!");
 
             }
+
+        }
+
+        if (commandType.equals("total")) {
+
+            System.out.println("Total cost is: " + totalCost);
 
         }
 
