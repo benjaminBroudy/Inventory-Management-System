@@ -172,8 +172,6 @@ public class Main {
             String cost = "";
             String unit = "";
 
-            System.out.println("WE HAVE PURCHASE");
-
             try {
 
                 String[][] items = updateInventory.getItems();
