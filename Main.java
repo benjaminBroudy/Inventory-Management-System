@@ -186,16 +186,18 @@ public class Main {
                         cost = items[i][2];
                         unit = items[i][3];
 
+                        updateInventory.removeItem(commandWordArray[1]);
+                        updateInventory.addItem(commandWordArray[1], Integer.toString(amount), cost, unit);
+
+                        totalCost += Double.parseDouble(commandWordArray[2]) * Double.parseDouble(cost);
+
+                        System.out.println("Total cost is: " + totalCost);
+
+                        return;
+
                     }
 
                 }
-
-                updateInventory.removeItem(commandWordArray[1]);
-                updateInventory.addItem(commandWordArray[1], Integer.toString(amount), cost, unit);
-
-                totalCost += Double.parseDouble(commandWordArray[2]) * Double.parseDouble(cost);
-
-                System.out.println("Total cost is: " + totalCost);
 
             } catch (Exception e) {
 
