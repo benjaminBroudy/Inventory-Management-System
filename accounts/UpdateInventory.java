@@ -18,7 +18,7 @@ public class UpdateInventory {
 
     public void addItem(String item, String amount, String cost, String unit) throws IOException {
 
-        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/inventory.json");
+        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/inventory.json");
 
         StringBuffer str = new StringBuffer(inventory);
        
@@ -26,13 +26,13 @@ public class UpdateInventory {
        
         str.insert(1, newItem);
 
-        editor.write("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/inventory.json", str.toString());
+        editor.write("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/inventory.json", str.toString());
 
     }
 
     public void removeItem(String item) throws IOException {
 
-        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/inventory.json");
+        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/inventory.json");
 
         int totalItems = usersReader.count(inventory) - 1;
 
@@ -99,13 +99,13 @@ public class UpdateInventory {
         
         inventory = inventory.replace("{        \"item\" : \"" + item + "\",        \"amnt\" : \"" + amount + "\",        \"cost\" : \"" + cost + "\",        \"unit\" : \"" + unit + "\"},","");
 
-        editor.write("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/inventory.json", inventory);
+        editor.write("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/inventory.json", inventory);
 
     }
 
     public String[][] getItems() throws IOException {
 
-        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/inventory.json");
+        inventory = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/inventory.json");
 
         int totalItems = usersReader.count(inventory) - 1;
 

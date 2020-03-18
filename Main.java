@@ -172,6 +172,8 @@ public class Main {
             String cost = "";
             String unit = "";
 
+            System.out.println("WE HAVE PURCHASE");
+
             try {
 
                 String[][] items = updateInventory.getItems();
@@ -193,7 +195,7 @@ public class Main {
 
             } catch (Exception e) {
 
-                System.err.println("OOps! You entered an invalid input when purchasing an item!");
+                System.err.println("Oops! You entered an invalid input when purchasing an item!");
 
             }
 

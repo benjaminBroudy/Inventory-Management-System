@@ -18,7 +18,7 @@ public class UpdateAccounts {
 
     public void addUser(String user, String pass, String level) throws IOException {
 
-        users = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/users.json");
+        users = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/users.json");
 
         StringBuffer str = new StringBuffer(users);
 
@@ -34,13 +34,13 @@ public class UpdateAccounts {
 
         str.insert(1, newUser);
 
-        editor.write("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/users.json", str.toString());
+        editor.write("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/users.json", str.toString());
 
     }
 
     public void removeUser(String user) throws IOException {
 
-        users = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/users.json");
+        users = Scan.scan("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/users.json");
 
         int totalAccounts = usersReader.count(users) - 1;
 
@@ -100,7 +100,7 @@ public class UpdateAccounts {
         
         users = users.replace("{        \"user\" : \"" + user + "\",        \"pass\" : \"" + pass + "\",        \"levl\" : \"" + level + "\"},","");
 
-        editor.write("C:/Users/Benjamin Broudy/OneDrive/Inventory Managment System/jsons/users.json", users);
+        editor.write("C:/Users/Benjamin Broudy/OneDrive/Documents/GitHub/Inventory-Management-System/jsons/users.json", users);
 
     }
 
