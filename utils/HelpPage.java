@@ -2,7 +2,7 @@ package utils;
 
 public class HelpPage {
 
-    public void printHelp() {
+    public static void printHelp() {
 
         
 

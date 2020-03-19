@@ -91,11 +91,31 @@ public class Main {
 
                 String commandType = commandWordArray[0];
 
-                if (commandType.equals("help")) {}
+                if (commandType.equals("help")) {
 
-                userCommands(commandType, commandWordArray);
+                    HelpPage.printHelp();
 
-                inventoryCommands(commandType, commandWordArray);
+                }
+
+                if (commandType.equals("login")) {
+
+                    loggedOut = true;
+
+                    login();
+
+                }
+
+                if (level[0].equals("staff") || level[0].equals("admin")) {
+
+                    inventoryCommands(commandType, commandWordArray);
+
+                    if (level[0].equals("admin")) {
+
+                        userCommands(commandType, commandWordArray);
+
+                    }
+
+                }
 
                 } catch (Exception e) {
 
